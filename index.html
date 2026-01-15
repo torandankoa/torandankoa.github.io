@@ -15,10 +15,10 @@
         :root {
             --bg-dark: #020617;
             --bg-card: #0f172a;
-            --primary-green: #22c55e; /* Xanh lá sáng vừa - Emerald Green */
-            --neon-green: #4ade80;    /* Xanh lá nhạt hơn để tạo hiệu ứng glow */
+            --primary-green: #22c55e;
+            --neon-green: #4ade80;
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-muted: #cbd5e1; /* Đã làm sáng màu xám trắng */
             --glass-border: rgba(255, 255, 255, 0.08);
         }
 
@@ -29,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* --- Background Grid --- */
         .bg-grid {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -41,7 +40,6 @@
             mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
         }
 
-        /* --- Navbar --- */
         .navbar {
             background: rgba(2, 6, 23, 0.9);
             backdrop-filter: blur(12px);
@@ -50,8 +48,7 @@
         }
         .navbar-brand { font-family: 'JetBrains Mono', monospace; color: var(--primary-green) !important; }
 
-        /* --- Hero Section --- */
-        .hero-section { padding: 180px 0 100px; }
+        .hero-section { padding: 200px 0 120px; }
         .gradient-text {
             background: linear-gradient(135deg, var(--primary-green), var(--neon-green));
             -webkit-background-clip: text;
@@ -67,7 +64,6 @@
             height: 300px;
         }
 
-        /* --- Project Cards --- */
         .glass-card {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(10px);
@@ -93,7 +89,6 @@
             display: inline-block;
         }
 
-        /* --- Buttons --- */
         .btn-glow {
             background: linear-gradient(90deg, var(--primary-green), var(--neon-green));
             color: #020617;
@@ -109,7 +104,6 @@
             color: #020617;
         }
 
-        /* --- Skills Grid --- */
         .skill-item {
             background: var(--bg-card);
             padding: 35px;
@@ -131,21 +125,19 @@
 
     <div class="bg-grid"></div>
 
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">
                 <span class="text-white">&lt;</span>KHOA.DEV<span class="text-white">/&gt;</span>
             </a>
             <div class="ms-auto d-flex align-items-center gap-4">
-                <a href="#projects" class="nav-link text-white d-none d-md-block">PROJECTS</a>
-                <a href="#skills" class="nav-link text-white d-none d-md-block">SKILLS</a>
+                <a href="#projects" class="nav-link text-white d-none d-md-block small fw-bold">PROJECTS</a>
+                <a href="#skills" class="nav-link text-white d-none d-md-block small fw-bold">SKILLS</a>
                 <a href="mailto:your-email@example.com" class="btn btn-outline-success btn-sm rounded-pill px-4">Contact Me</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
@@ -155,41 +147,36 @@
                         I'm <span class="text-white">Trần Đăng Khoa</span>. <br>
                         Building <span class="gradient-text type-effect"></span>
                     </h1>
-                    <p class="lead text-muted mb-5 pe-lg-5">
+                    <p class="lead mb-5 pe-lg-5" style="color: var(--text-muted);">
                         Passionate Full-stack Developer specialized in architecting high-performance E-commerce ecosystems and robust enterprise solutions using the .NET stack.
                     </p>
                     <div class="d-flex gap-3">
                         <a href="#projects" class="btn btn-glow text-dark">View Projects</a>
-                        <a href="https://github.com/torandankoa" target="_blank" class="btn btn-dark border rounded-3 px-4 d-flex align-items-center">
+                        <a href="https://github.com/torandankoa" target="_blank" class="btn btn-dark border rounded-3 px-4 d-flex align-items-center shadow-sm">
                             <i class="bi bi-github me-2"></i> GitHub
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center" data-aos="zoom-in">
-                    <!-- Update your avatar here -->
-                    <img src="avatar.jpg" 
-                         class="img-fluid avatar-glow rounded-circle mt-5 mt-lg-0" 
-                         alt="Trần Đăng Khoa">
+                    <img src="avatar.jpg" class="img-fluid avatar-glow rounded-circle mt-5 mt-lg-0 shadow-lg" alt="Trần Đăng Khoa">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="py-5">
         <div class="container py-5">
             <h2 class="display-5 fw-bold mb-5" data-aos="fade-right"><span class="text-success">/</span> Featured Work</h2>
             
-            <!-- Horizon Gaming Gear Project -->
             <div class="glass-card p-4 p-lg-5 mb-5" data-aos="fade-up">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="col-lg-6 mb-4 mb-lg-0 text-center">
                         <img src="HomeScreen.png" class="img-fluid rounded-4 shadow-lg border border-secondary" alt="Horizon Gaming Gear">
                     </div>
                     <div class="col-lg-6 ps-lg-5">
                         <h6 class="text-success font-mono mb-2">01 // E-commerce Architecture</h6>
                         <h2 class="fw-bold mb-3">Horizon Gaming Gear</h2>
-                        <p class="text-muted mb-4">
+                        <p class="mb-4" style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
                             A high-end B2C platform designed for the tactical gaming niche. Integrated with <strong>VnPay Gateway</strong>, featuring real-time stock management, custom CRM via Mailchimp, and automated order processing.
                         </p>
                         <div class="mb-4">
@@ -199,7 +186,7 @@
                             <span class="tech-badge">VnPay API</span>
                             <span class="tech-badge">Mailchimp CRM</span>
                         </div>
-                        <div class="d-flex gap-4">
+                        <div class="d-flex gap-4 pt-2">
                             <a href="https://os-horizon.site" target="_blank" class="text-white text-decoration-none fw-bold small border-bottom border-success pb-1">
                                 <i class="bi bi-link-45deg"></i> LIVE DEMO
                             </a>
@@ -213,7 +200,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="py-5 bg-black bg-opacity-25">
         <div class="container py-5">
             <h2 class="display-5 fw-bold mb-5 text-center" data-aos="fade-up">Technical Proficiency</h2>
@@ -222,45 +208,43 @@
                     <div class="skill-item h-100">
                         <i class="bi bi-code-slash skill-icon"></i>
                         <h5 class="fw-bold">Backend</h5>
-                        <p class="text-muted small">C#, .NET 8, LINQ, RESTful APIs</p>
+                        <p class="small" style="color: var(--text-muted);">C#, .NET 8, LINQ, RESTful APIs</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="skill-item h-100">
                         <i class="bi bi-front skill-icon"></i>
                         <h5 class="fw-bold">Frontend</h5>
-                        <p class="text-muted small">JavaScript (ES6+), Bootstrap 5, CSS3</p>
+                        <p class="small" style="color: var(--text-muted);">JavaScript (ES6+), Bootstrap 5, CSS3</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="skill-item h-100">
                         <i class="bi bi-database skill-icon"></i>
                         <h5 class="fw-bold">Data</h5>
-                        <h5 class="fw-bold">Data</h5>
-                        <p class="text-muted small">MSSQL Server, Redis, EF Core</p>
+                        <p class="small" style="color: var(--text-muted);">MSSQL Server, Redis, EF Core</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
                     <div class="skill-item h-100">
                         <i class="bi bi-gear skill-icon"></i>
                         <h5 class="fw-bold">Infrastructure</h5>
-                        <p class="text-muted small">Git/GitHub, Cloud Deployment, SEO</p>
+                        <p class="small" style="color: var(--text-muted);">Git/GitHub, Cloud Deployment, SEO</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-5 text-center mt-5">
         <div class="container">
-            <h2 class="fw-bold mb-4">Let's build something amazing.</h2>
+            <h2 class="fw-bold mb-4">Let's build the future together.</h2>
             <div class="d-flex justify-content-center gap-4 mb-5">
-                <a href="#" class="fs-3 text-white hover-success"><i class="bi bi-linkedin"></i></a>
-                <a href="https://github.com/torandankoa" class="fs-3 text-white hover-success"><i class="bi bi-github"></i></a>
-                <a href="mailto:your-email@gmail.com" class="fs-3 text-white hover-success"><i class="bi bi-envelope-at"></i></a>
+                <a href="#" class="fs-3 text-white"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/torandankoa" class="fs-3 text-white"><i class="bi bi-github"></i></a>
+                <a href="mailto:your-email@gmail.com" class="fs-3 text-white"><i class="bi bi-envelope-at"></i></a>
             </div>
-            <p class="text-muted font-mono small">
+            <p class="font-mono small" style="color: var(--text-muted);">
                 &copy; 2025 Trần Đăng Khoa. <br>
                 Designed with Modern Web Standards & .NET 8.
             </p>
