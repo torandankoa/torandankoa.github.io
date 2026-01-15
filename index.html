@@ -15,8 +15,8 @@
         :root {
             --bg-dark: #020617;
             --bg-card: #0f172a;
-            --primary-blue: #3b82f6;
-            --neon-cyan: #06b6d4;
+            --primary-green: #22c55e; /* Xanh lá sáng vừa - Emerald Green */
+            --neon-green: #4ade80;    /* Xanh lá nhạt hơn để tạo hiệu ứng glow */
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --glass-border: rgba(255, 255, 255, 0.08);
@@ -29,13 +29,13 @@
             overflow-x: hidden;
         }
 
-        /* --- Background Grid Animation --- */
+        /* --- Background Grid --- */
         .bg-grid {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+                linear-gradient(rgba(34, 197, 94, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34, 197, 94, 0.05) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: -1;
             mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
@@ -48,26 +48,23 @@
             border-bottom: 1px solid var(--glass-border);
             padding: 18px 0;
         }
-        .navbar-brand { font-family: 'JetBrains Mono', monospace; letter-spacing: -1px; }
+        .navbar-brand { font-family: 'JetBrains Mono', monospace; color: var(--primary-green) !important; }
 
         /* --- Hero Section --- */
-        .hero-section { padding: 200px 0 120px; }
+        .hero-section { padding: 180px 0 100px; }
         .gradient-text {
-            background: linear-gradient(135deg, var(--primary-blue), var(--neon-cyan));
+            background: linear-gradient(135deg, var(--primary-green), var(--neon-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
         }
+        
         .avatar-glow {
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            border: 4px solid var(--primary-blue);
-            box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
-            animation: morph 8s ease-in-out infinite;
-        }
-        @keyframes morph {
-            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            50% { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
-            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            border: 4px solid var(--primary-green);
+            box-shadow: 0 0 40px rgba(34, 197, 94, 0.3);
+            object-fit: cover;
+            width: 300px;
+            height: 300px;
         }
 
         /* --- Project Cards --- */
@@ -79,25 +76,27 @@
             transition: 0.4s;
         }
         .glass-card:hover {
-            border-color: var(--primary-blue);
-            transform: translateY(-10px);
+            border-color: var(--primary-green);
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
         .tech-badge {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            color: var(--neon-cyan);
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            color: var(--neon-green);
             padding: 5px 12px;
             border-radius: 8px;
             font-size: 0.8rem;
             font-family: 'JetBrains Mono', monospace;
             margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
         }
 
         /* --- Buttons --- */
         .btn-glow {
-            background: linear-gradient(90deg, var(--primary-blue), var(--neon-cyan));
-            color: white;
+            background: linear-gradient(90deg, var(--primary-green), var(--neon-green));
+            color: #020617;
             padding: 14px 32px;
             border-radius: 12px;
             font-weight: 700;
@@ -105,9 +104,9 @@
             transition: 0.3s;
         }
         .btn-glow:hover {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 0 25px rgba(34, 197, 94, 0.6);
             transform: scale(1.03);
-            color: white;
+            color: #020617;
         }
 
         /* --- Skills Grid --- */
@@ -120,10 +119,10 @@
             text-align: center;
         }
         .skill-item:hover {
-            border-color: var(--neon-cyan);
-            background: rgba(59, 130, 246, 0.05);
+            border-color: var(--primary-green);
+            background: rgba(34, 197, 94, 0.05);
         }
-        .skill-icon { font-size: 2.8rem; color: var(--primary-blue); margin-bottom: 15px; display: block;}
+        .skill-icon { font-size: 2.8rem; color: var(--primary-green); margin-bottom: 15px; display: block;}
 
         footer { border-top: 1px solid var(--glass-border); }
     </style>
@@ -136,12 +135,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">
-                <span class="text-primary">&lt;</span>KHOA.DEV<span class="text-primary">/&gt;</span>
+                <span class="text-white">&lt;</span>KHOA.DEV<span class="text-white">/&gt;</span>
             </a>
             <div class="ms-auto d-flex align-items-center gap-4">
                 <a href="#projects" class="nav-link text-white d-none d-md-block">PROJECTS</a>
                 <a href="#skills" class="nav-link text-white d-none d-md-block">SKILLS</a>
-                <a href="mailto:your-email@gmail.com" class="btn btn-outline-primary btn-sm rounded-pill px-4">Contact Me</a>
+                <a href="mailto:your-email@example.com" class="btn btn-outline-success btn-sm rounded-pill px-4">Contact Me</a>
             </div>
         </div>
     </nav>
@@ -151,25 +150,26 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7" data-aos="fade-up">
-                    <h6 class="font-mono text-primary mb-4">// Full Stack Developer</h6>
+                    <h6 class="font-mono text-success mb-4">// Software Engineer Portfolio</h6>
                     <h1 class="display-3 fw-bold mb-4">
                         I'm <span class="text-white">Trần Đăng Khoa</span>. <br>
                         Building <span class="gradient-text type-effect"></span>
                     </h1>
                     <p class="lead text-muted mb-5 pe-lg-5">
-                        Passionate Software Engineer specialized in architecting high-performance E-commerce ecosystems and robust enterprise solutions using the .NET stack.
+                        Passionate Full-stack Developer specialized in architecting high-performance E-commerce ecosystems and robust enterprise solutions using the .NET stack.
                     </p>
                     <div class="d-flex gap-3">
-                        <a href="#projects" class="btn btn-glow">Explore Projects</a>
+                        <a href="#projects" class="btn btn-glow text-dark">View Projects</a>
                         <a href="https://github.com/torandankoa" target="_blank" class="btn btn-dark border rounded-3 px-4 d-flex align-items-center">
                             <i class="bi bi-github me-2"></i> GitHub
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center" data-aos="zoom-in">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=020617" 
-                         class="img-fluid avatar-glow mt-5 mt-lg-0" 
-                         style="max-width: 320px;" alt="Trần Đăng Khoa Avatar">
+                    <!-- Update your avatar here -->
+                    <img src="avatar.jpg" 
+                         class="img-fluid avatar-glow rounded-circle mt-5 mt-lg-0" 
+                         alt="Trần Đăng Khoa">
                 </div>
             </div>
         </div>
@@ -178,31 +178,29 @@
     <!-- Projects Section -->
     <section id="projects" class="py-5">
         <div class="container py-5">
-            <h2 class="display-5 fw-bold mb-5" data-aos="fade-right">Featured Projects</h2>
+            <h2 class="display-5 fw-bold mb-5" data-aos="fade-right"><span class="text-success">/</span> Featured Work</h2>
             
-            <!-- Horizon Project -->
+            <!-- Horizon Gaming Gear Project -->
             <div class="glass-card p-4 p-lg-5 mb-5" data-aos="fade-up">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <!-- Mockup Image Placeholder -->
-                        <div style="background: linear-gradient(45deg, #1e293b, #334155); aspect-ratio: 16/9; border-radius: 16px; display: flex; align-items: center; justify-content: center;" class="shadow-lg">
-                             <i class="bi bi-cart4 display-1 text-primary opacity-50"></i>
-                        </div>
+                        <img src="HomeScreen.png" class="img-fluid rounded-4 shadow-lg border border-secondary" alt="Horizon Gaming Gear">
                     </div>
                     <div class="col-lg-6 ps-lg-5">
-                        <h6 class="text-primary font-mono mb-2">01 // E-commerce Platform</h6>
-                        <h2 class="fw-bold mb-3">Horizon Tactical Gear Shop</h2>
+                        <h6 class="text-success font-mono mb-2">01 // E-commerce Architecture</h6>
+                        <h2 class="fw-bold mb-3">Horizon Gaming Gear</h2>
                         <p class="text-muted mb-4">
-                            A high-end B2C platform designed for the tactical gaming niche. Integrated with <strong>VnPay Gateway</strong>, featuring real-time stock management, custom CRM via Mailchimp, and deep SEO optimization.
+                            A high-end B2C platform designed for the tactical gaming niche. Integrated with <strong>VnPay Gateway</strong>, featuring real-time stock management, custom CRM via Mailchimp, and automated order processing.
                         </p>
                         <div class="mb-4">
                             <span class="tech-badge">ASP.NET Core 8</span>
-                            <span class="tech-badge">EF Core 8</span>
+                            <span class="tech-badge">Entity Framework Core 8</span>
                             <span class="tech-badge">SQL Server</span>
                             <span class="tech-badge">VnPay API</span>
+                            <span class="tech-badge">Mailchimp CRM</span>
                         </div>
                         <div class="d-flex gap-4">
-                            <a href="https://os-horizon.site" target="_blank" class="text-white text-decoration-none fw-bold small border-bottom border-primary pb-1">
+                            <a href="https://os-horizon.site" target="_blank" class="text-white text-decoration-none fw-bold small border-bottom border-success pb-1">
                                 <i class="bi bi-link-45deg"></i> LIVE DEMO
                             </a>
                             <a href="https://github.com/torandankoa/Horizon" target="_blank" class="text-white text-decoration-none fw-bold small border-bottom border-secondary pb-1">
@@ -212,67 +210,41 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Task Manager Project -->
-            <div class="glass-card p-4 p-lg-5" data-aos="fade-up" data-aos-delay="100">
-                <div class="row align-items-center flex-row-reverse">
-                    <div class="col-lg-6 mb-4 mb-lg-0 text-center">
-                        <div style="background: linear-gradient(45deg, #0f172a, #1e293b); aspect-ratio: 16/9; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                            <i class="bi bi-shield-lock display-1 text-info opacity-50"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 pe-lg-5">
-                        <h6 class="text-info font-mono mb-2">02 // API Development</h6>
-                        <h2 class="fw-bold mb-3">Secure Task Engine</h2>
-                        <p class="text-muted mb-4">
-                            Enterprise-ready RESTful API focusing on security and scalability. Implemented <strong>JWT Authentication</strong> and <strong>Clean Architecture</strong> to ensure maintainable and testable code.
-                        </p>
-                        <div class="mb-4">
-                            <span class="tech-badge">.NET Core API</span>
-                            <span class="tech-badge">Docker</span>
-                            <span class="tech-badge">JWT</span>
-                            <span class="tech-badge">Swagger</span>
-                        </div>
-                        <a href="#" class="text-white text-decoration-none fw-bold small border-bottom border-info pb-1">
-                            <i class="bi bi-github"></i> VIEW REPOSITORY
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="py-5 bg-black bg-opacity-25">
         <div class="container py-5">
-            <h2 class="display-5 fw-bold mb-5 text-center" data-aos="fade-up">Technical Stack</h2>
+            <h2 class="display-5 fw-bold mb-5 text-center" data-aos="fade-up">Technical Proficiency</h2>
             <div class="row g-4">
                 <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="skill-item h-100">
-                        <i class="bi bi-cpu skill-icon"></i>
+                        <i class="bi bi-code-slash skill-icon"></i>
                         <h5 class="fw-bold">Backend</h5>
-                        <p class="text-muted small">C#, .NET 8, Web API, LINQ</p>
+                        <p class="text-muted small">C#, .NET 8, LINQ, RESTful APIs</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="skill-item h-100">
                         <i class="bi bi-front skill-icon"></i>
                         <h5 class="fw-bold">Frontend</h5>
-                        <p class="text-muted small">JS, Bootstrap 5, Razor Pages</p>
+                        <p class="text-muted small">JavaScript (ES6+), Bootstrap 5, CSS3</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="skill-item h-100">
                         <i class="bi bi-database skill-icon"></i>
                         <h5 class="fw-bold">Data</h5>
-                        <p class="text-muted small">MSSQL, Redis, EF Core</p>
+                        <h5 class="fw-bold">Data</h5>
+                        <p class="text-muted small">MSSQL Server, Redis, EF Core</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
                     <div class="skill-item h-100">
-                        <i class="bi bi-clouds skill-icon"></i>
+                        <i class="bi bi-gear skill-icon"></i>
                         <h5 class="fw-bold">Infrastructure</h5>
-                        <p class="text-muted small">Git, Docker, SmarterASP</p>
+                        <p class="text-muted small">Git/GitHub, Cloud Deployment, SEO</p>
                     </div>
                 </div>
             </div>
@@ -282,16 +254,15 @@
     <!-- Footer -->
     <footer class="py-5 text-center mt-5">
         <div class="container">
-            <h2 class="fw-bold mb-4">Let's build the future together.</h2>
-            <p class="text-muted mb-5">Currently open for internship and full-time positions.</p>
+            <h2 class="fw-bold mb-4">Let's build something amazing.</h2>
             <div class="d-flex justify-content-center gap-4 mb-5">
-                <a href="#" class="fs-3 text-white"><i class="bi bi-linkedin"></i></a>
-                <a href="#" class="fs-3 text-white"><i class="bi bi-github"></i></a>
-                <a href="mailto:your-email@gmail.com" class="fs-3 text-white"><i class="bi bi-envelope-at"></i></a>
+                <a href="#" class="fs-3 text-white hover-success"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/torandankoa" class="fs-3 text-white hover-success"><i class="bi bi-github"></i></a>
+                <a href="mailto:your-email@gmail.com" class="fs-3 text-white hover-success"><i class="bi bi-envelope-at"></i></a>
             </div>
             <p class="text-muted font-mono small">
                 &copy; 2025 Trần Đăng Khoa. <br>
-                Architected with .NET 8 and Modern Design.
+                Designed with Modern Web Standards & .NET 8.
             </p>
         </div>
     </footer>
@@ -302,7 +273,6 @@
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
     <script>
-        // Fix AOS Initializing
         document.addEventListener('DOMContentLoaded', function() {
             AOS.init({
                 once: true,
@@ -310,9 +280,8 @@
                 offset: 100
             });
 
-            // Fix Typed.js with correct strings
             new Typed('.type-effect', {
-                strings: ['Scalable Systems.', 'Secure Web Apps.', 'Modern Solutions.'],
+                strings: ['Scalable Systems.', 'E-commerce Solutions.', 'Modern Architectures.'],
                 typeSpeed: 60,
                 backSpeed: 40,
                 backDelay: 2000,
