@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KHOATRAN.DEV - Backend Developer Portfolio</title>
+    <title>KHOATRAN.DEV | Backend Engineer Portfolio</title>
     
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,10 +14,10 @@
 
     <style>
         :root {
-            --bg-dark: #020617; /* Đen vũ trụ */
-            --bg-card: #0f172a; /* Xanh đen */
-            --primary-blue: #3b82f6; /* Xanh dương sáng */
-            --electric-blue: #00d2ff;
+            --bg-dark: #050505; 
+            --bg-card: #0a0a0a; 
+            --primary-green: #22c55e; 
+            --electric-green: #4ade80; 
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -33,61 +33,71 @@
         /* --- Custom Scrollbar --- */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--primary-blue); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 10px; }
 
         /* --- Floating Navbar --- */
         .navbar {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(34, 197, 94, 0.2);
             padding: 15px 0;
         }
 
         /* --- Hero Section --- */
         .hero-section {
-            padding: 150px 0 100px;
-            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at 10% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
         }
 
         .glitch-text {
-            color: var(--electric-blue);
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+            color: var(--electric-green);
+            text-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-family: 'Roboto Mono', monospace;
         }
 
         .avatar-glow {
-            border: 4px solid var(--primary-blue);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-            transition: 0.5s;
+            border: 4px solid var(--primary-green);
+            box-shadow: 0 0 40px rgba(34, 197, 94, 0.3);
+            transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             object-fit: cover;
         }
-        .avatar-glow:hover { transform: scale(1.05) rotate(3deg); }
+        .avatar-glow:hover { 
+            transform: scale(1.03) rotate(2deg);
+            box-shadow: 0 0 60px rgba(34, 197, 94, 0.5);
+        }
 
         /* --- Project Card --- */
-        .project-section { padding: 80px 0; }
+        .project-section { padding: 90px 0; }
         
         .card-horizon {
             background: var(--bg-card);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(34, 197, 94, 0.2);
             border-radius: 24px;
             transition: 0.4s;
             overflow: hidden;
         }
         
         .card-horizon:hover {
-            border-color: var(--electric-blue);
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+            border-color: var(--electric-green);
+            box-shadow: 0 0 50px rgba(34, 197, 94, 0.15);
+        }
+
+        .project-img-container {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .tech-stack-badge {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--electric-blue);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            padding: 5px 15px;
+            background: rgba(34, 197, 94, 0.08);
+            color: var(--electric-green);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            padding: 6px 14px;
             border-radius: 50px;
             font-size: 0.75rem;
-            margin: 3px;
+            margin: 4px;
             display: inline-block;
             font-family: 'Roboto Mono', monospace;
         }
@@ -95,45 +105,46 @@
         /* --- Skills Grid --- */
         .skill-box {
             background: var(--bg-card);
-            padding: 25px;
+            padding: 30px;
             border-radius: 20px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             transition: 0.3s;
             height: 100%;
         }
         .skill-box:hover {
-            border-color: var(--primary-blue);
-            background: rgba(59, 130, 246, 0.05);
-            transform: translateY(-5px);
+            border-color: var(--primary-green);
+            background: rgba(34, 197, 94, 0.03);
+            transform: translateY(-8px);
         }
 
         .btn-cyber {
-            background: linear-gradient(45deg, var(--primary-blue), var(--electric-blue));
+            background: linear-gradient(45deg, #16a34a, var(--primary-green));
             color: white;
             border: none;
             border-radius: 12px;
-            padding: 12px 30px;
-            font-weight: bold;
+            padding: 14px 35px;
+            font-weight: 700;
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
+            letter-spacing: 1px;
         }
         .btn-cyber:hover {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
             color: white;
-            transform: scale(1.05);
+            transform: translateY(-2px);
         }
 
         .text-gradient {
-            background: linear-gradient(to right, #fff, var(--electric-blue));
+            background: linear-gradient(to right, #ffffff, var(--electric-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: #020617;
+            border-top: 1px solid rgba(34, 197, 94, 0.1);
+            background: #050505;
         }
     </style>
 </head>
@@ -142,7 +153,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#" style="letter-spacing: 2px;">KHOATRAN<span class="text-primary">.DEV</span></a>
+            <a class="navbar-brand fw-bold" href="#" style="letter-spacing: 2px;">KHOATRAN<span style="color: var(--primary-green);">.DEV</span></a>
             <div class="ms-auto d-flex gap-4">
                 <a href="#projects" class="nav-link text-white small fw-bold">PROJECTS</a>
                 <a href="#skills" class="nav-link text-white small fw-bold">SKILLS</a>
@@ -156,15 +167,15 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
-                    <h5 class="glitch-text text-uppercase">Backend Developer Intern</h5>
-                    <h1 class="display-3 fw-bold mt-3 text-gradient">Building scalable APIs <br> & optimizing <span class="text-primary">performance.</span></h1>
+                    <h5 class="glitch-text text-uppercase">Backend Engineer Intern</h5>
+                    <h1 class="display-3 fw-bold mt-3 text-gradient">Architecting Scalable <br> APIs & <span style="color: var(--primary-green);">Infrastructure.</span></h1>
                     <p class="lead text-muted my-4 pe-lg-5">
-                        Tôi là <strong>Trần Đăng Khoa</strong>, sinh viên năm cuối tập trung vào hệ sinh thái <strong>.NET Core</strong>. 
-                        Đam mê giải quyết các bài toán kiến trúc hệ thống, tối ưu Database và bảo mật ứng dụng.
-                        <br><br><span class="badge bg-primary">GPA 3.3/4.0</span>
+                        Hi, I'm <strong>Tran Dang Khoa</strong>, a final-year IT student specializing in the <strong>.NET Ecosystem</strong>. 
+                        I am dedicated to solving architectural challenges, optimizing relational databases, and implementing robust security protocols.
+                        <br><br><span class="badge" style="background-color: var(--primary-green); color: #000; font-weight: 700;">GPA 3.3 / 4.0</span>
                     </p>
                     <div class="d-flex gap-3 align-items-center">
-                        <a href="#projects" class="btn btn-cyber shadow">View Arsenal</a>
+                        <a href="#projects" class="btn btn-cyber shadow">Explore Arsenal</a>
                         <div class="d-flex gap-4 ms-3">
                             <a href="https://github.com/khoatran04-it" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
                             <a href="https://os-horizon.site" target="_blank" class="text-white fs-4"><i class="bi bi-globe"></i></a>
@@ -172,8 +183,8 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <!-- Ảnh của bạn -->
-                    <img src="avatar.jpg" class="img-fluid rounded-circle avatar-glow mt-5 mt-lg-0" style="width: 320px; height: 320px;" alt="Tran Dang Khoa">
+                    <!-- Ảnh đại diện: avatar.jpg -->
+                    <img src="avatar.jpg" class="img-fluid rounded-circle avatar-glow mt-5 mt-lg-0" style="width: 320px; height: 320px;" alt="Tran Dang Khoa Profile">
                 </div>
             </div>
         </div>
@@ -182,39 +193,43 @@
     <!-- PROJECT SECTION -->
     <section id="projects" class="project-section">
         <div class="container">
-            <h2 class="fw-bold mb-5"><span class="text-primary">#</span> Featured Project</h2>
+            <h2 class="fw-bold mb-5"><span style="color: var(--primary-green);">#</span> Featured Project</h2>
             
             <div class="card-horizon p-4 p-lg-5">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <img src="https://os-horizon.site/assets/img/og-image.jpg" class="img-fluid rounded-4 shadow" alt="Horizon Showcase" onerror="this.src='https://placehold.co/600x400/0f172a/3b82f6?text=Gaming+Gear+E-commerce'">
+                        <!-- Ảnh dự án: HomeScreen.png -->
+                        <div class="project-img-container">
+                            <img src="HomeScreen.png" class="img-fluid shadow w-100" alt="Horizon Project UI">
+                        </div>
                     </div>
                     <div class="col-lg-6 ps-lg-5">
                         <div class="d-flex align-items-center gap-2 mb-3">
-                            <span class="text-primary fw-bold">CORE ARCHITECTURE</span>
-                            <div style="height: 1px; width: 50px; background: var(--primary-blue);"></div>
+                            <span style="color: var(--primary-green);" class="fw-bold">CORE SYSTEM</span>
+                            <div style="height: 1px; width: 50px; background: var(--primary-green);"></div>
                         </div>
                         <h2 class="fw-bold mb-3">Gaming Gear E-commerce (HORIZON)</h2>
-                        <p class="text-muted">Hệ thống thương mại điện tử chuyên biệt tập trung vào hiệu năng Backend. Triển khai kiến trúc phân lớp (Layered Architecture), tích hợp thanh toán VnPay và bảo mật chuẩn OWASP.</p>
+                        <p class="text-muted">A specialized B2C platform built for high-performance retail. Engineered using a **Layered Architecture**, featuring integrated secure payment processing and automated inventory tracking.</p>
                         
                         <div class="my-4">
                             <span class="tech-stack-badge">ASP.NET Core 8 Web API</span>
                             <span class="tech-stack-badge">EF Core 8</span>
                             <span class="tech-stack-badge">SQL Server</span>
-                            <span class="tech-stack-badge">Identity</span>
-                            <span class="tech-stack-badge">VnPay IPN</span>
+                            <span class="tech-stack-badge">Identity Framework</span>
+                            <span class="tech-stack-badge">VnPay Integration</span>
                             <span class="tech-stack-badge">LINQ Optimization</span>
                         </div>
                         
                         <ul class="text-muted small mb-4">
-                            <li>Thiết kế & Modeling Database quan hệ phức tạp.</li>
-                            <li>Tích hợp VnPay Gateway với cơ chế IPN xác thực giao dịch an toàn.</li>
-                            <li>Phân quyền (RBAC) sử dụng Identity Framework.</li>
+                            <li>Modeled complex relational schemas for dynamic inventory management.</li>
+                            <li>Integrated VnPay Gateway with secure IPN callback verification.</li>
+                            <li>Implemented Role-Based Access Control (RBAC) via ASP.NET Identity.</li>
+                            <li>Optimized data fetching with advanced LINQ queries and SQL indexing.</li>
                         </ul>
                         
                         <div class="d-flex gap-3 mt-4">
                             <a href="https://os-horizon.site" target="_blank" class="btn btn-cyber">Live Site <i class="bi bi-rocket-takeoff ms-2"></i></a>
-                            <a href="https://github.com/khoatran04-it" target="_blank" class="btn btn-outline-light border-secondary">Source Code <i class="bi bi-github ms-2"></i></a>
+                            <a href="https://github.com/khoatran04-it" target="_blank" class="btn btn-outline-success border-success text-white">Source Code <i class="bi bi-github ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -223,36 +238,36 @@
     </section>
 
     <!-- SKILLS SECTION -->
-    <section id="skills" class="py-5 bg-dark">
+    <section id="skills" class="py-5">
         <div class="container">
-            <h2 class="fw-bold mb-5 text-center">Technical <span class="text-primary">Capabilities</span></h2>
+            <h2 class="fw-bold mb-5 text-center">Technical <span style="color: var(--primary-green);">Arsenal</span></h2>
             <div class="row g-4">
                 <div class="col-md-3">
                     <div class="skill-box">
-                        <i class="bi bi-code-square fs-1 text-primary"></i>
+                        <i class="bi bi-code-slash fs-1" style="color: var(--primary-green);"></i>
                         <h6 class="mt-3 mb-2 fw-bold">BACKEND</h6>
-                        <p class="small text-muted">C#, .NET Core 8, Web API, LINQ, OOP & Design Patterns</p>
+                        <p class="small text-muted">C#, .NET Core 8, Web API, LINQ, OOP Design Patterns</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="skill-box">
-                        <i class="bi bi-database-check fs-1 text-primary"></i>
+                        <i class="bi bi-database fs-1" style="color: var(--primary-green);"></i>
                         <h6 class="mt-3 mb-2 fw-bold">DATABASE</h6>
-                        <p class="small text-muted">SQL Server, EF Core (Code-first), Database Modeling</p>
+                        <p class="small text-muted">SQL Server, Entity Framework Core, Schema Modeling, T-SQL</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="skill-box">
-                        <i class="bi bi-terminal-fill fs-1 text-primary"></i>
+                        <i class="bi bi-box-seam fs-1" style="color: var(--primary-green);"></i>
                         <h6 class="mt-3 mb-2 fw-bold">TOOLS & DEVOPS</h6>
                         <p class="small text-muted">Docker (Basic), Git/GitHub, Visual Studio 2022, Azure Services</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="skill-box">
-                        <i class="bi bi-layers-half fs-1 text-primary"></i>
+                        <i class="bi bi-window-sidebar fs-1" style="color: var(--primary-green);"></i>
                         <h6 class="mt-3 mb-2 fw-bold">FRONTEND</h6>
-                        <p class="small text-muted">React.js (Basic), JavaScript, Bootstrap 5, CSS3</p>
+                        <p class="small text-muted">React.js (Foundational), JavaScript, Bootstrap 5, CSS3</p>
                     </div>
                 </div>
             </div>
@@ -266,8 +281,8 @@
                 <a href="https://github.com/khoatran04-it" class="text-muted fs-4"><i class="bi bi-github"></i></a>
                 <a href="mailto:khoatran04.it@gmail.com" class="text-muted fs-4"><i class="bi bi-envelope-at"></i></a>
             </div>
-            <p class="text-muted small">&copy; 2025 TRAN DANG KHOA. All Systems Operational.</p>
-            <p style="font-size: 10px; color: #334155;">Designed for High-Performance Backend Roles</p>
+            <p class="text-muted small">&copy; 2025 TRAN DANG KHOA. All Operational Protocols Secured.</p>
+            <p style="font-size: 10px; color: #1e293b; letter-spacing: 1px;">ENCRYPTED_TRANSMISSION_SUCCESSFUL</p>
         </div>
     </footer>
 
