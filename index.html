@@ -19,7 +19,7 @@
             --primary-green: #22c55e; 
             --electric-green: #4ade80; 
             --text-main: #f8fafc;
-            --text-muted: #cbd5e1; /* Đã tăng độ sáng để rõ chữ */
+            --text-muted: #cbd5e1;
         }
 
         body {
@@ -35,7 +35,6 @@
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
         ::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 10px; }
 
-        /* --- Floating Navbar --- */
         .navbar {
             background: rgba(5, 5, 5, 0.9);
             backdrop-filter: blur(12px);
@@ -43,7 +42,6 @@
             padding: 15px 0;
         }
 
-        /* --- Hero Section --- */
         .hero-section {
             padding: 160px 0 100px;
             background: radial-gradient(circle at 10% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
@@ -60,26 +58,13 @@
         .avatar-glow {
             border: 4px solid var(--primary-green);
             box-shadow: 0 0 40px rgba(34, 197, 94, 0.3);
-            transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.6s;
             object-fit: cover;
         }
-        .avatar-glow:hover { 
-            transform: scale(1.02);
-            box-shadow: 0 0 60px rgba(34, 197, 94, 0.5);
-        }
 
-        /* --- Typography Fix --- */
-        .lead {
-            color: var(--text-main) !important; /* Đảm bảo đoạn intro sáng nhất */
-            line-height: 1.8;
-            font-weight: 400;
-        }
-        
-        .text-muted {
-            color: var(--text-muted) !important;
-        }
+        .lead { color: var(--text-main) !important; line-height: 1.8; }
+        .text-muted { color: var(--text-muted) !important; }
 
-        /* --- Project Card --- */
         .project-section { padding: 90px 0; }
         
         .card-horizon {
@@ -88,11 +73,29 @@
             border-radius: 24px;
             transition: 0.4s;
             overflow: hidden;
+            margin-bottom: 40px;
         }
         
         .card-horizon:hover {
             border-color: var(--electric-green);
             box-shadow: 0 0 50px rgba(34, 197, 94, 0.15);
+        }
+
+        .coming-soon-overlay {
+            position: relative;
+            filter: grayscale(0.5);
+            opacity: 0.8;
+        }
+
+        .badge-status {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--electric-green);
+            border: 1px solid var(--primary-green);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: bold;
         }
 
         .tech-stack-badge {
@@ -107,22 +110,6 @@
             font-family: 'Roboto Mono', monospace;
         }
 
-        /* --- Skills Grid --- */
-        .skill-box {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: 0.3s;
-            height: 100%;
-        }
-        .skill-box:hover {
-            border-color: var(--primary-green);
-            background: rgba(34, 197, 94, 0.03);
-            transform: translateY(-8px);
-        }
-
         .btn-cyber {
             background: linear-gradient(45deg, #16a34a, var(--primary-green));
             color: white;
@@ -133,23 +120,23 @@
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
-            letter-spacing: 0.5px;
-        }
-        .btn-cyber:hover {
-            box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
-            color: white;
-            transform: translateY(-2px);
         }
 
-        footer {
-            border-top: 1px solid rgba(34, 197, 94, 0.1);
-            background: #050505;
+        .skill-box {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: 0.3s;
+            height: 100%;
         }
+
+        footer { border-top: 1px solid rgba(34, 197, 94, 0.1); background: #050505; }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#" style="letter-spacing: 2px;">KHOATRAN<span style="color: var(--primary-green);">.DEV</span></a>
@@ -161,7 +148,6 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
@@ -173,7 +159,7 @@
                     <p class="lead my-4 pe-lg-5">
                         Dedicated Backend Developer focused on the <strong>.NET ecosystem</strong>. 
                         Committed to architecting high-performance server-side solutions, optimizing relational databases, 
-                        and implementing industry-standard security protocols to ensure system integrity.
+                        and implementing industry-standard security protocols.
                         <br><br><span class="badge" style="background-color: var(--primary-green); color: #000; font-weight: 700; padding: 8px 16px;">GPA 3.3 / 4.0</span>
                     </p>
                     <div class="d-flex gap-3 align-items-center">
@@ -185,58 +171,84 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <img src="Avatar.png" class="img-fluid rounded-circle avatar-glow mt-5 mt-lg-0" style="width: 320px; height: 320px;" alt="Tran Dang Khoa - Professional Avatar">
+                    <img src="Avatar.png" class="img-fluid rounded-circle avatar-glow mt-5 mt-lg-0" style="width: 320px; height: 320px;" alt="Tran Dang Khoa">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROJECT SECTION -->
     <section id="projects" class="project-section">
         <div class="container">
             <h2 class="fw-bold mb-5"><span style="color: var(--primary-green);">#</span> Technical Projects</h2>
             
+            <!-- PROJECT 01: HORIZON -->
             <div class="card-horizon p-4 p-lg-5">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
                         <div style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
-                            <img src="HomeScreen.png" class="img-fluid w-100" alt="Horizon Project UI Preview">
+                            <img src="HomeScreen.png" class="img-fluid w-100" alt="Horizon Project UI">
                         </div>
                     </div>
                     <div class="col-lg-6 ps-lg-5">
                         <div class="d-flex align-items-center gap-2 mb-3">
-                            <span style="color: var(--primary-green);" class="fw-bold">CORE ARCHITECTURE</span>
+                            <span style="color: var(--primary-green);" class="fw-bold">CORE SYSTEM</span>
                             <div style="height: 1px; width: 50px; background: var(--primary-green);"></div>
                         </div>
                         <h2 class="fw-bold mb-3">Gaming Gear E-commerce (HORIZON)</h2>
-                        <p class="text-muted">A specialized B2C platform engineered for high-availability retail operations. Built using a <strong>Layered Architecture</strong>, featuring secure third-party payment integration and optimized data persistence layers.</p>
+                        <p class="text-muted">A specialized B2C platform engineered for high-availability retail operations. Built using a <strong>Layered Architecture</strong>, featuring secure third-party payment integration and optimized data persistence.</p>
                         
-                        <div class="my-4">
+                        <div class="my-3">
                             <span class="tech-stack-badge">ASP.NET Core 8 Web API</span>
                             <span class="tech-stack-badge">EF Core 8</span>
                             <span class="tech-stack-badge">SQL Server</span>
-                            <span class="tech-stack-badge">Identity Framework</span>
-                            <span class="tech-stack-badge">VnPay Integration</span>
+                            <span class="tech-stack-badge">Identity</span>
+                            <span class="tech-stack-badge">VnPay IPN</span>
                         </div>
-                        
-                        <ul class="text-muted small mb-4" style="line-height: 2;">
-                            <li>Designed complex relational database models for scalable inventory management.</li>
-                            <li>Integrated VnPay Payment Gateway with secure IPN callback verification.</li>
-                            <li>Implemented Role-Based Access Control (RBAC) via ASP.NET Identity.</li>
-                            <li>Applied LINQ query optimization and indexing to enhance data retrieval speeds.</li>
-                        </ul>
                         
                         <div class="d-flex gap-3 mt-4">
                             <a href="https://os-horizon.site" target="_blank" class="btn btn-cyber">Live Site <i class="bi bi-rocket-takeoff ms-2"></i></a>
-                            <a href="https://github.com/khoatran04-it" target="_blank" class="btn btn-outline-success border-success text-white">Source Code <i class="bi bi-github ms-2"></i></a>
+                            <a href="https://github.com/khoatran04-it" target="_blank" class="btn btn-outline-success border-success text-white">Source <i class="bi bi-github ms-2"></i></a>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 02: SOLARIS (COMING SOON) -->
+            <div class="card-horizon p-4 p-lg-5 coming-soon-overlay">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div style="border-radius: 16px; background: #0f172a; height: 300px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--primary-green);">
+                            <div class="text-center">
+                                <i class="bi bi-controller display-1 text-success opacity-50"></i>
+                                <p class="mt-3 glitch-text small">SYSTEM_ENCRYPTION: IN_PROGRESS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ps-lg-5">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="badge-status">Coming Soon</span>
+                            <div style="height: 1px; width: 50px; background: var(--primary-green);"></div>
+                        </div>
+                        <h2 class="fw-bold mb-3">Prize Redemption Gaming System (SOLARIS)</h2>
+                        <p class="text-muted">An ecosystem designed to bridge entertainment and e-commerce. Solaris integrates directly with the <strong>Horizon platform</strong>, allowing users to play web-based games and win vouchers redeemable for real-world hardware.</p>
+                        
+                        <div class="my-3">
+                            <span class="tech-stack-badge">Cross-Platform API</span>
+                            <span class="tech-stack-badge">Gamification Logic</span>
+                            <span class="tech-stack-badge">Real-time Integration</span>
+                            <span class="tech-stack-badge">Voucher Generation</span>
+                        </div>
+                        
+                        <ul class="text-muted small mb-4">
+                            <li><strong>Objective:</strong> Increase customer retention and conversion rates through interactive rewards.</li>
+                            <li><strong>Integration:</strong> Real-time data sync with Horizon E-commerce backend.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS SECTION -->
     <section id="skills" class="py-5 bg-dark">
         <div class="container">
             <h2 class="fw-bold mb-5 text-center">Technical <span style="color: var(--primary-green);">Competencies</span></h2>
@@ -244,15 +256,15 @@
                 <div class="col-md-3">
                     <div class="skill-box">
                         <i class="bi bi-code-slash fs-1" style="color: var(--primary-green);"></i>
-                        <h6 class="mt-3 mb-2 fw-bold">BACKEND DEVELOPMENT</h6>
+                        <h6 class="mt-3 mb-2 fw-bold">BACKEND</h6>
                         <p class="small text-muted">C#, .NET Core 8, Web API, LINQ, OOP Design Patterns</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="skill-box">
                         <i class="bi bi-database-fill-gear fs-1" style="color: var(--primary-green);"></i>
-                        <h6 class="mt-3 mb-2 fw-bold">DATABASE MANAGEMENT</h6>
-                        <p class="small text-muted">SQL Server, Entity Framework Core, Relational Modeling, T-SQL</p>
+                        <h6 class="mt-3 mb-2 fw-bold">DATABASE</h6>
+                        <p class="small text-muted">SQL Server, Entity Framework Core, Relational Modeling</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -265,7 +277,7 @@
                 <div class="col-md-3">
                     <div class="skill-box">
                         <i class="bi bi-window-fullscreen fs-1" style="color: var(--primary-green);"></i>
-                        <h6 class="mt-3 mb-2 fw-bold">FRONTEND FOUNDATION</h6>
+                        <h6 class="mt-3 mb-2 fw-bold">FRONTEND</h6>
                         <p class="small text-muted">React.js, JavaScript (ES6+), Bootstrap 5, CSS3</p>
                     </div>
                 </div>
@@ -273,7 +285,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="py-5 text-center mt-5">
         <div class="container">
             <div class="d-flex justify-content-center gap-4 mb-4">
