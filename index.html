@@ -3,326 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Tran Dang Khoa (Full-stack Intern)</title>
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>KHOATRAN.DEV - Backend Developer Portfolio</title>
     
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --azure-blue: #0078D4; 
-            --dark-blue: #005a9e;
-            --text-dark: #201f1e;
-            --text-light: #605e5c;
+            --bg-dark: #020617; /* Đen vũ trụ */
+            --bg-card: #0f172a; /* Xanh đen */
+            --primary-blue: #3b82f6; /* Xanh dương sáng */
+            --electric-blue: #00d2ff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
         }
 
-        * { box-sizing: border-box; }
-        
         body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            font-size: 13px; /* Slightly reduced for A4 fit */
-            color: var(--text-dark);
-            line-height: 1.4;
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .cv-container {
-            max-width: 850px;
-            margin: 20px auto;
-            background: white;
-            display: flex;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            min-height: 297mm;
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-blue); border-radius: 10px; }
+
+        /* --- Floating Navbar --- */
+        .navbar {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 15px 0;
         }
 
-        /* --- LEFT COLUMN --- */
-        .left-column {
-            width: 32%;
-            background-color: var(--azure-blue);
-            color: white;
-            padding: 25px 20px;
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 150px 0 100px;
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
         }
 
-        .avatar-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 4px solid rgba(255,255,255,0.4);
-            /* Tối ưu hiển thị cho ảnh mới của bạn */
-            object-fit: cover; 
-            object-position: center; 
-            background: white;
-        }
-
-        .my-name {
-            font-size: 19px;
+        .glitch-text {
+            color: var(--electric-blue);
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
             font-weight: 700;
-            margin: 12px 0 5px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .job-title {
-            font-size: 13px;
-            font-weight: 400;
-            opacity: 0.95;
-            margin-bottom: 20px;
-            display: block;
+            letter-spacing: 2px;
         }
 
-        .sb-section { margin-bottom: 25px; }
-        .sb-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(255,255,255,0.4);
-            padding-bottom: 5px;
-            margin-bottom: 12px;
-            font-weight: 700;
+        .avatar-glow {
+            border: 4px solid var(--primary-blue);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            transition: 0.5s;
+            object-fit: cover;
+        }
+        .avatar-glow:hover { transform: scale(1.05) rotate(3deg); }
+
+        /* --- Project Card --- */
+        .project-section { padding: 80px 0; }
+        
+        .card-horizon {
+            background: var(--bg-card);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 24px;
+            transition: 0.4s;
+            overflow: hidden;
+        }
+        
+        .card-horizon:hover {
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            font-size: 11px;
-        }
-        .contact-item i { width: 18px; margin-right: 8px; font-size: 13px; }
-        .contact-item a { color: white; text-decoration: none; }
-
-        .tech-tag {
+        .tech-stack-badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--electric-blue);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            margin: 3px;
             display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 3px 8px;
-            border-radius: 3px;
-            margin: 0 3px 6px 0;
-            font-size: 10.5px;
-            font-weight: 600;
+            font-family: 'Roboto Mono', monospace;
         }
 
-        .skill-list { padding-left: 15px; margin: 0; font-size: 11.5px; }
-        .skill-list li { margin-bottom: 5px; }
-
-        /* --- RIGHT COLUMN --- */
-        .right-column {
-            width: 68%;
-            padding: 30px 35px;
+        /* --- Skills Grid --- */
+        .skill-box {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+            height: 100%;
+        }
+        .skill-box:hover {
+            border-color: var(--primary-blue);
+            background: rgba(59, 130, 246, 0.05);
+            transform: translateY(-5px);
         }
 
-        .main-section { margin-bottom: 22px; }
-        .main-title {
-            font-size: 17px;
-            color: var(--azure-blue);
-            text-transform: uppercase;
-            font-weight: 700;
-            border-bottom: 2px solid var(--azure-blue);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        .main-title i { margin-right: 10px; }
-
-        .item { margin-bottom: 15px; }
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-        }
-        .item-title { font-size: 15px; font-weight: 700; color: #000; }
-        .item-date { font-weight: 700; color: var(--azure-blue); font-size: 12px; }
-        .item-subtitle { font-style: italic; color: var(--text-light); font-size: 13px; }
-
-        .item-desc {
-            margin: 6px 0 0 0;
-            padding-left: 18px;
-        }
-        .item-desc li { margin-bottom: 4px; color: #333; text-align: justify;}
-
-        .tech-stack-line {
-            font-size: 12px;
-            margin: 4px 0;
-            color: var(--dark-blue);
-            font-weight: 600;
-        }
-
-        .links { margin-top: 8px; }
-        .links a {
-            color: var(--azure-blue);
+        .btn-cyber {
+            background: linear-gradient(45deg, var(--primary-blue), var(--electric-blue));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 30px;
+            font-weight: bold;
+            transition: 0.3s;
             text-decoration: none;
-            font-weight: 700;
-            margin-right: 15px;
-            font-size: 11.5px;
+            display: inline-block;
+        }
+        .btn-cyber:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+            color: white;
+            transform: scale(1.05);
         }
 
-        @media print {
-            body { background: none; }
-            .cv-container { box-shadow: none; margin: 0; width: 100%; }
-            .azure-blue { -webkit-print-color-adjust: exact; }
+        .text-gradient {
+            background: linear-gradient(to right, #fff, var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #020617;
         }
     </style>
 </head>
 <body>
 
-    <div class="cv-container">
-        <!-- Sidebar -->
-        <div class="left-column">
-            <div class="avatar-container">
-                <!-- Sử dụng ảnh bạn vừa gửi (Lưu ý: đặt tên file là avatar.jpg khi upload lên Github) -->
-                <img src="avatar.jpg" alt="Tran Dang Khoa" class="avatar">
-                <h1 class="my-name">Tran Dang Khoa</h1>
-                <span class="job-title">Full-stack Developer Intern</span>
-            </div>
-
-            <div class="sb-section">
-                <h3 class="sb-title">Contact</h3>
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i> <span>(+84) 77 325 9363</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i> 
-                    <a href="mailto:khoatran04.it@gmail.com">khoatran04.it@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i> 
-                    <a href="https://github.com/khoatran04-it" target="_blank">github.com/khoatran04-it</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-globe"></i> 
-                    <a href="https://os-horizon.site" target="_blank">os-horizon.site</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i> <span>District 4, HCMC</span>
-                </div>
-            </div>
-
-            <div class="sb-section">
-                <h3 class="sb-title">Technical Skills</h3>
-                <div style="margin-bottom: 12px;">
-                    <strong style="font-size: 10px; display:block; margin-bottom:5px; opacity: 0.9;">BACKEND:</strong>
-                    <span class="tech-tag">.NET Core 8</span>
-                    <span class="tech-tag">C#</span>
-                    <span class="tech-tag">RESTful API</span>
-                    <span class="tech-tag">EF Core</span>
-                    <span class="tech-tag">SQL Server</span>
-                </div>
-                <div>
-                    <strong style="font-size: 10px; display:block; margin-bottom:5px; opacity: 0.9;">FRONTEND:</strong>
-                    <span class="tech-tag">React.js</span>
-                    <span class="tech-tag">JavaScript (ES6+)</span>
-                    <span class="tech-tag">HTML5/CSS3</span>
-                    <span class="tech-tag">Bootstrap 5</span>
-                </div>
-            </div>
-
-            <div class="sb-section">
-                <h3 class="sb-title">Tools & Others</h3>
-                <div style="list-style: none; padding: 0;">
-                    <span class="tech-tag">Git / GitHub</span>
-                    <span class="tech-tag">Azure Services</span>
-                    <span class="tech-tag">Agile/Scrum</span>
-                    <span class="tech-tag">Unit Testing</span>
-                </div>
-            </div>
-
-            <div class="sb-section">
-                <h3 class="sb-title">Soft Skills</h3>
-                <ul class="skill-list">
-                    <li>Effective Teamwork</li>
-                    <li>Analytical Thinking</li>
-                    <li>Time Management</li>
-                    <li>Technical Research (English)</li>
-                </ul>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" style="letter-spacing: 2px;">KHOATRAN<span class="text-primary">.DEV</span></a>
+            <div class="ms-auto d-flex gap-4">
+                <a href="#projects" class="nav-link text-white small fw-bold">PROJECTS</a>
+                <a href="#skills" class="nav-link text-white small fw-bold">SKILLS</a>
+                <a href="mailto:khoatran04.it@gmail.com" class="nav-link text-white small fw-bold">CONTACT</a>
             </div>
         </div>
+    </nav>
 
-        <!-- Main Content -->
-        <div class="right-column">
-            
-            <!-- Summary -->
-            <div class="main-section">
-                <h2 class="main-title"><i class="fas fa-user-circle"></i> Professional Summary</h2>
-                <div class="item">
-                    <p style="margin: 0; text-align: justify;">
-                        Final-year IT student passionate about <strong>Full-stack development</strong>. 
-                        Proficient in building high-performance web applications using <strong>.NET Core 8</strong> for robust backends 
-                        and <strong>React</strong> for dynamic user interfaces. Highly proactive in learning new technologies, 
-                        optimizing performance, and delivering scalable software solutions according to modern web standards.
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h5 class="glitch-text text-uppercase">Backend Developer Intern</h5>
+                    <h1 class="display-3 fw-bold mt-3 text-gradient">Building scalable APIs <br> & optimizing <span class="text-primary">performance.</span></h1>
+                    <p class="lead text-muted my-4 pe-lg-5">
+                        Tôi là <strong>Trần Đăng Khoa</strong>, sinh viên năm cuối tập trung vào hệ sinh thái <strong>.NET Core</strong>. 
+                        Đam mê giải quyết các bài toán kiến trúc hệ thống, tối ưu Database và bảo mật ứng dụng.
+                        <br><br><span class="badge bg-primary">GPA 3.3/4.0</span>
                     </p>
-                </div>
-            </div>
-
-            <!-- Education -->
-            <div class="main-section">
-                <h2 class="main-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">Nguyen Tat Thanh University (NIIE)</div>
-                        <div class="item-date">2021 - Present</div>
-                    </div>
-                    <div class="item-subtitle">Bachelor of Information Technology</div>
-                    <ul class="item-desc">
-                        <li>Cumulative GPA: <strong>3.2/4.0</strong></li>
-                        <li>Relevant Coursework: Web Development, Cloud Infrastructure, Agile Methodologies, Database Systems.</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Projects -->
-            <div class="main-section">
-                <h2 class="main-title"><i class="fas fa-laptop-code"></i> Featured Project</h2>
-                
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">Gaming Gear E-commerce Platform (HORIZON)</div>
-                        <div class="item-date">2024</div>
-                    </div>
-                    <div class="item-subtitle">Solo Full-stack Developer</div>
-                    <div class="tech-stack-line">Stack: .NET Core 8, React, SQL Server, EF Core, VnPay SDK, Mailchimp API</div>
-                    <ul class="item-desc">
-                        <li>Built a specialized B2C platform for high-end gaming equipment from scratch.</li>
-                        <li>Developed a secure Backend using <strong>ASP.NET Identity</strong> and integrated <strong>VnPay Gateway</strong> for seamless payments.</li>
-                        <li>Designed a fast-loading, mobile-responsive UI with <strong>React</strong> and <strong>Bootstrap 5</strong>.</li>
-                        <li>Optimized for discovery with <strong>SEO-friendly URLs</strong> and <strong>Open Graph</strong> metadata integration.</li>
-                        <li>Followed <strong>OWASP standards</strong> to protect against SQL Injection and XSS attacks.</li>
-                        <li>Utilized <strong>Google Analytics 4</strong> to analyze user behavior and enhance site conversion rates.</li>
-                    </ul>
-                    <div class="links">
-                        <a href="https://os-horizon.site/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="https://github.com/khoatran04-it" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                    <div class="d-flex gap-3 align-items-center">
+                        <a href="#projects" class="btn btn-cyber shadow">View Arsenal</a>
+                        <div class="d-flex gap-4 ms-3">
+                            <a href="https://github.com/khoatran04-it" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
+                            <a href="https://os-horizon.site" target="_blank" class="text-white fs-4"><i class="bi bi-globe"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Interests & Goals -->
-            <div class="main-section">
-                <h2 class="main-title"><i class="fas fa-rocket"></i> Interests & Career Goals</h2>
-                <div class="item">
-                    <ul class="item-desc">
-                        <li><strong>Self-Improvement:</strong> Solving algorithmic challenges on <strong>LeetCode</strong> and <strong>Codewars</strong> to sharpen logic.</li>
-                        <li><strong>Future Focus:</strong> Deepening knowledge in <strong>Microservices architecture</strong> and <strong>Cloud-native</strong> computing.</li>
-                        <li><strong>Career Vision:</strong> Aiming to grow into a Senior Full-stack Engineer, capable of architecting complex systems to solve real-world problems.</li>
-                    </ul>
+                <div class="col-lg-5 text-center">
+                    <!-- Ảnh của bạn -->
+                    <img src="avatar.jpg" class="img-fluid rounded-circle avatar-glow mt-5 mt-lg-0" style="width: 320px; height: 320px;" alt="Tran Dang Khoa">
                 </div>
             </div>
-
-            <!-- Certificates -->
-            <div class="main-section">
-                <h2 class="main-title"><i class="fas fa-certificate"></i> Certifications</h2>
-                <div class="item">
-                    <ul class="item-desc">
-                        <li><strong>MOS</strong> (Microsoft Office Specialist)</li>
-                        <li><strong>English Proficiency Certificate</strong> (NIIE)</li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
-    </div>
+    </section>
+
+    <!-- PROJECT SECTION -->
+    <section id="projects" class="project-section">
+        <div class="container">
+            <h2 class="fw-bold mb-5"><span class="text-primary">#</span> Featured Project</h2>
+            
+            <div class="card-horizon p-4 p-lg-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <img src="https://os-horizon.site/assets/img/og-image.jpg" class="img-fluid rounded-4 shadow" alt="Horizon Showcase" onerror="this.src='https://placehold.co/600x400/0f172a/3b82f6?text=Gaming+Gear+E-commerce'">
+                    </div>
+                    <div class="col-lg-6 ps-lg-5">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <span class="text-primary fw-bold">CORE ARCHITECTURE</span>
+                            <div style="height: 1px; width: 50px; background: var(--primary-blue);"></div>
+                        </div>
+                        <h2 class="fw-bold mb-3">Gaming Gear E-commerce (HORIZON)</h2>
+                        <p class="text-muted">Hệ thống thương mại điện tử chuyên biệt tập trung vào hiệu năng Backend. Triển khai kiến trúc phân lớp (Layered Architecture), tích hợp thanh toán VnPay và bảo mật chuẩn OWASP.</p>
+                        
+                        <div class="my-4">
+                            <span class="tech-stack-badge">ASP.NET Core 8 Web API</span>
+                            <span class="tech-stack-badge">EF Core 8</span>
+                            <span class="tech-stack-badge">SQL Server</span>
+                            <span class="tech-stack-badge">Identity</span>
+                            <span class="tech-stack-badge">VnPay IPN</span>
+                            <span class="tech-stack-badge">LINQ Optimization</span>
+                        </div>
+                        
+                        <ul class="text-muted small mb-4">
+                            <li>Thiết kế & Modeling Database quan hệ phức tạp.</li>
+                            <li>Tích hợp VnPay Gateway với cơ chế IPN xác thực giao dịch an toàn.</li>
+                            <li>Phân quyền (RBAC) sử dụng Identity Framework.</li>
+                        </ul>
+                        
+                        <div class="d-flex gap-3 mt-4">
+                            <a href="https://os-horizon.site" target="_blank" class="btn btn-cyber">Live Site <i class="bi bi-rocket-takeoff ms-2"></i></a>
+                            <a href="https://github.com/khoatran04-it" target="_blank" class="btn btn-outline-light border-secondary">Source Code <i class="bi bi-github ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="fw-bold mb-5 text-center">Technical <span class="text-primary">Capabilities</span></h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="skill-box">
+                        <i class="bi bi-code-square fs-1 text-primary"></i>
+                        <h6 class="mt-3 mb-2 fw-bold">BACKEND</h6>
+                        <p class="small text-muted">C#, .NET Core 8, Web API, LINQ, OOP & Design Patterns</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="skill-box">
+                        <i class="bi bi-database-check fs-1 text-primary"></i>
+                        <h6 class="mt-3 mb-2 fw-bold">DATABASE</h6>
+                        <p class="small text-muted">SQL Server, EF Core (Code-first), Database Modeling</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="skill-box">
+                        <i class="bi bi-terminal-fill fs-1 text-primary"></i>
+                        <h6 class="mt-3 mb-2 fw-bold">TOOLS & DEVOPS</h6>
+                        <p class="small text-muted">Docker (Basic), Git/GitHub, Visual Studio 2022, Azure Services</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="skill-box">
+                        <i class="bi bi-layers-half fs-1 text-primary"></i>
+                        <h6 class="mt-3 mb-2 fw-bold">FRONTEND</h6>
+                        <p class="small text-muted">React.js (Basic), JavaScript, Bootstrap 5, CSS3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-5 text-center mt-5">
+        <div class="container">
+            <div class="d-flex justify-content-center gap-4 mb-4">
+                <a href="https://github.com/khoatran04-it" class="text-muted fs-4"><i class="bi bi-github"></i></a>
+                <a href="mailto:khoatran04.it@gmail.com" class="text-muted fs-4"><i class="bi bi-envelope-at"></i></a>
+            </div>
+            <p class="text-muted small">&copy; 2025 TRAN DANG KHOA. All Systems Operational.</p>
+            <p style="font-size: 10px; color: #334155;">Designed for High-Performance Backend Roles</p>
+        </div>
+    </footer>
 
 </body>
 </html>
