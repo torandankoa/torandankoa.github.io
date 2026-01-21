@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KHOATRAN.DEV | Backend Engineer Portfolio</title>
+    <title>TRAN DANG KHOA | Backend Engineer Portfolio</title>
     
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
             --primary-green: #22c55e; 
             --electric-green: #4ade80; 
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-muted: #cbd5e1; /* Đã tăng độ sáng để rõ chữ */
         }
 
         body {
@@ -37,7 +37,7 @@
 
         /* --- Floating Navbar --- */
         .navbar {
-            background: rgba(5, 5, 5, 0.85);
+            background: rgba(5, 5, 5, 0.9);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(34, 197, 94, 0.2);
             padding: 15px 0;
@@ -53,7 +53,7 @@
             color: var(--electric-green);
             text-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
             font-weight: 700;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-family: 'Roboto Mono', monospace;
         }
 
@@ -64,8 +64,19 @@
             object-fit: cover;
         }
         .avatar-glow:hover { 
-            transform: scale(1.03) rotate(2deg);
+            transform: scale(1.02);
             box-shadow: 0 0 60px rgba(34, 197, 94, 0.5);
+        }
+
+        /* --- Typography Fix --- */
+        .lead {
+            color: var(--text-main) !important; /* Đảm bảo đoạn intro sáng nhất */
+            line-height: 1.8;
+            font-weight: 400;
+        }
+        
+        .text-muted {
+            color: var(--text-muted) !important;
         }
 
         /* --- Project Card --- */
@@ -82,12 +93,6 @@
         .card-horizon:hover {
             border-color: var(--electric-green);
             box-shadow: 0 0 50px rgba(34, 197, 94, 0.15);
-        }
-
-        .project-img-container {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .tech-stack-badge {
@@ -128,18 +133,12 @@
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         .btn-cyber:hover {
             box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
             color: white;
             transform: translateY(-2px);
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, #ffffff, var(--electric-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         footer {
@@ -168,14 +167,17 @@
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <h5 class="glitch-text text-uppercase">Backend Engineer Intern</h5>
-                    <h1 class="display-3 fw-bold mt-3 text-gradient">Architecting Scalable <br> APIs & <span style="color: var(--primary-green);">Infrastructure.</span></h1>
-                    <p class="lead text-muted my-4 pe-lg-5">
-                        Hi, I'm <strong>Tran Dang Khoa</strong>, a final-year IT student specializing in the <strong>.NET Ecosystem</strong>. 
-                        I am dedicated to solving architectural challenges, optimizing relational databases, and implementing robust security protocols.
-                        <br><br><span class="badge" style="background-color: var(--primary-green); color: #000; font-weight: 700;">GPA 3.3 / 4.0</span>
+                    <h1 class="display-3 fw-bold mt-3" style="background: linear-gradient(to right, #fff, var(--electric-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        Engineering Scalable <br> APIs & Infrastructure.
+                    </h1>
+                    <p class="lead my-4 pe-lg-5">
+                        Dedicated Backend Developer focused on the <strong>.NET ecosystem</strong>. 
+                        Committed to architecting high-performance server-side solutions, optimizing relational databases, 
+                        and implementing industry-standard security protocols to ensure system integrity.
+                        <br><br><span class="badge" style="background-color: var(--primary-green); color: #000; font-weight: 700; padding: 8px 16px;">GPA 3.3 / 4.0</span>
                     </p>
                     <div class="d-flex gap-3 align-items-center">
-                        <a href="#projects" class="btn btn-cyber shadow">Explore Arsenal</a>
+                        <a href="#projects" class="btn btn-cyber shadow">My Projects</a>
                         <div class="d-flex gap-4 ms-3">
                             <a href="https://github.com/khoatran04-it" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
                             <a href="https://os-horizon.site" target="_blank" class="text-white fs-4"><i class="bi bi-globe"></i></a>
@@ -183,8 +185,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <!-- Ảnh đại diện: avatar.jpg -->
-                    <img src="avatar.jpg" class="img-fluid rounded-circle avatar-glow mt-5 mt-lg-0" style="width: 320px; height: 320px;" alt="Tran Dang Khoa Profile">
+                    <img src="Avatar.png" class="img-fluid rounded-circle avatar-glow mt-5 mt-lg-0" style="width: 320px; height: 320px;" alt="Tran Dang Khoa - Professional Avatar">
                 </div>
             </div>
         </div>
@@ -193,23 +194,22 @@
     <!-- PROJECT SECTION -->
     <section id="projects" class="project-section">
         <div class="container">
-            <h2 class="fw-bold mb-5"><span style="color: var(--primary-green);">#</span> Featured Project</h2>
+            <h2 class="fw-bold mb-5"><span style="color: var(--primary-green);">#</span> Technical Projects</h2>
             
             <div class="card-horizon p-4 p-lg-5">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <!-- Ảnh dự án: HomeScreen.png -->
-                        <div class="project-img-container">
-                            <img src="HomeScreen.png" class="img-fluid shadow w-100" alt="Horizon Project UI">
+                        <div style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                            <img src="HomeScreen.png" class="img-fluid w-100" alt="Horizon Project UI Preview">
                         </div>
                     </div>
                     <div class="col-lg-6 ps-lg-5">
                         <div class="d-flex align-items-center gap-2 mb-3">
-                            <span style="color: var(--primary-green);" class="fw-bold">CORE SYSTEM</span>
+                            <span style="color: var(--primary-green);" class="fw-bold">CORE ARCHITECTURE</span>
                             <div style="height: 1px; width: 50px; background: var(--primary-green);"></div>
                         </div>
                         <h2 class="fw-bold mb-3">Gaming Gear E-commerce (HORIZON)</h2>
-                        <p class="text-muted">A specialized B2C platform built for high-performance retail. Engineered using a **Layered Architecture**, featuring integrated secure payment processing and automated inventory tracking.</p>
+                        <p class="text-muted">A specialized B2C platform engineered for high-availability retail operations. Built using a <strong>Layered Architecture</strong>, featuring secure third-party payment integration and optimized data persistence layers.</p>
                         
                         <div class="my-4">
                             <span class="tech-stack-badge">ASP.NET Core 8 Web API</span>
@@ -217,14 +217,13 @@
                             <span class="tech-stack-badge">SQL Server</span>
                             <span class="tech-stack-badge">Identity Framework</span>
                             <span class="tech-stack-badge">VnPay Integration</span>
-                            <span class="tech-stack-badge">LINQ Optimization</span>
                         </div>
                         
-                        <ul class="text-muted small mb-4">
-                            <li>Modeled complex relational schemas for dynamic inventory management.</li>
-                            <li>Integrated VnPay Gateway with secure IPN callback verification.</li>
+                        <ul class="text-muted small mb-4" style="line-height: 2;">
+                            <li>Designed complex relational database models for scalable inventory management.</li>
+                            <li>Integrated VnPay Payment Gateway with secure IPN callback verification.</li>
                             <li>Implemented Role-Based Access Control (RBAC) via ASP.NET Identity.</li>
-                            <li>Optimized data fetching with advanced LINQ queries and SQL indexing.</li>
+                            <li>Applied LINQ query optimization and indexing to enhance data retrieval speeds.</li>
                         </ul>
                         
                         <div class="d-flex gap-3 mt-4">
@@ -238,36 +237,36 @@
     </section>
 
     <!-- SKILLS SECTION -->
-    <section id="skills" class="py-5">
+    <section id="skills" class="py-5 bg-dark">
         <div class="container">
-            <h2 class="fw-bold mb-5 text-center">Technical <span style="color: var(--primary-green);">Arsenal</span></h2>
+            <h2 class="fw-bold mb-5 text-center">Technical <span style="color: var(--primary-green);">Competencies</span></h2>
             <div class="row g-4">
                 <div class="col-md-3">
                     <div class="skill-box">
                         <i class="bi bi-code-slash fs-1" style="color: var(--primary-green);"></i>
-                        <h6 class="mt-3 mb-2 fw-bold">BACKEND</h6>
+                        <h6 class="mt-3 mb-2 fw-bold">BACKEND DEVELOPMENT</h6>
                         <p class="small text-muted">C#, .NET Core 8, Web API, LINQ, OOP Design Patterns</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="skill-box">
-                        <i class="bi bi-database fs-1" style="color: var(--primary-green);"></i>
-                        <h6 class="mt-3 mb-2 fw-bold">DATABASE</h6>
-                        <p class="small text-muted">SQL Server, Entity Framework Core, Schema Modeling, T-SQL</p>
+                        <i class="bi bi-database-fill-gear fs-1" style="color: var(--primary-green);"></i>
+                        <h6 class="mt-3 mb-2 fw-bold">DATABASE MANAGEMENT</h6>
+                        <p class="small text-muted">SQL Server, Entity Framework Core, Relational Modeling, T-SQL</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="skill-box">
-                        <i class="bi bi-box-seam fs-1" style="color: var(--primary-green);"></i>
-                        <h6 class="mt-3 mb-2 fw-bold">TOOLS & DEVOPS</h6>
-                        <p class="small text-muted">Docker (Basic), Git/GitHub, Visual Studio 2022, Azure Services</p>
+                        <i class="bi bi-terminal fs-1" style="color: var(--primary-green);"></i>
+                        <h6 class="mt-3 mb-2 fw-bold">DEVOPS & TOOLS</h6>
+                        <p class="small text-muted">Docker (Basics), Git/GitHub, Visual Studio 2022, Azure Cloud</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="skill-box">
-                        <i class="bi bi-window-sidebar fs-1" style="color: var(--primary-green);"></i>
-                        <h6 class="mt-3 mb-2 fw-bold">FRONTEND</h6>
-                        <p class="small text-muted">React.js (Foundational), JavaScript, Bootstrap 5, CSS3</p>
+                        <i class="bi bi-window-fullscreen fs-1" style="color: var(--primary-green);"></i>
+                        <h6 class="mt-3 mb-2 fw-bold">FRONTEND FOUNDATION</h6>
+                        <p class="small text-muted">React.js, JavaScript (ES6+), Bootstrap 5, CSS3</p>
                     </div>
                 </div>
             </div>
@@ -282,7 +281,7 @@
                 <a href="mailto:khoatran04.it@gmail.com" class="text-muted fs-4"><i class="bi bi-envelope-at"></i></a>
             </div>
             <p class="text-muted small">&copy; 2025 TRAN DANG KHOA. All Operational Protocols Secured.</p>
-            <p style="font-size: 10px; color: #1e293b; letter-spacing: 1px;">ENCRYPTED_TRANSMISSION_SUCCESSFUL</p>
+            <p style="font-size: 10px; color: #1e293b; letter-spacing: 1px; font-family: 'Roboto Mono';">ENCRYPTED_DATA_TRANSMISSION_COMPLETE</p>
         </div>
     </footer>
 
